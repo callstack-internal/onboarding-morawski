@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
+import {WeatherGeneralInfo} from '../../components/WeatherGeneralInfo';
 import {RootRoute, useAppRoute} from '../../navigation/Routes';
 
 const WeatherDetailsScreen: React.FC = () => {
@@ -11,27 +12,31 @@ const WeatherDetailsScreen: React.FC = () => {
     return <Text>UuU, sorry about that! Details unavailable :S</Text>;
   }
 
+  const {
+    main: {humidity, pressure},
+    wind: {speed},
+    clouds: {all},
+  } = item;
+
   return (
     <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>{item.city}</Text>
-          <Text style={styles.text}>{item.county}</Text>
-        </View>
-        <Image source={{uri: item.image}} style={styles.image} />
-      </View>
+      <WeatherGeneralInfo item={item} />
       <View style={styles.bottomContainer}>
         <View style={styles.textContainer}>
-          <Text style={styles.label}>Temperature:</Text>
-          <Text style={styles.text}>{item.temperature}</Text>
+          <Text style={styles.label}>Humidity:</Text>
+          <Text style={styles.value}>{humidity}%</Text>
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.label}>Humidity:</Text>
-          <Text style={styles.text}>{item.humidity}</Text>
+          <Text style={styles.label}>Pressure:</Text>
+          <Text style={styles.value}>{pressure} hPa</Text>
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.label}>Wind Speed:</Text>
-          <Text style={styles.text}>{item.windSpeed}</Text>
+          <Text style={styles.value}>{speed} mPh</Text>
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.label}>Cloud cover:</Text>
+          <Text style={styles.value}>{all}%</Text>
         </View>
       </View>
     </View>
@@ -48,17 +53,25 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   bottomContainer: {
-    margin: 10,
+    borderTopColor: 'lightgray',
+    borderTopWidth: 1,
   },
   textContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 50,
+    borderBottomColor: 'lightgray',
+    borderBottomWidth: 1,
+    paddingVertical: 3,
+    alignContent: 'center',
+    paddingHorizontal: 25,
   },
-  text: {
+  value: {
     marginRight: 10,
+    color: 'grey',
   },
   label: {
-    fontWeight: 'bold',
     marginRight: 10,
   },
   image: {
