@@ -6,7 +6,7 @@ import {
   useColorScheme,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-// import { WeatherList } from './src/components/WeatherList';
+import { WeatherList } from './src/components/WeatherList';
 
 const OPEN_WEATHER_API_KEY = "ba7775fa717190ec593df1d334712a82"
 
@@ -24,7 +24,7 @@ function App(): JSX.Element {
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={backgroundStyle.backgroundColor}
         />
-        {/* <WeatherList /> */}
+        <WeatherList />
       </SafeAreaView>
     </NavigationContainer>
   );
