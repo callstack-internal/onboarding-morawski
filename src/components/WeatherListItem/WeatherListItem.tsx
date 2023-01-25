@@ -10,21 +10,21 @@ type Props = {
 };
 
 const WeatherItem: React.FC<Props> = ({item}) => {
-  const navigation = useAppNavigation();;
+  const navigation = useAppNavigation();
 
   const {
     weather: {
       0: {icon, description},
     },
     name,
-  } = item;;
+  } = item;
 
   const onListItemClick = useCallback(
-    (item: Props['item']) => {
-      navigation.navigate(RootRoute.WeatherDetails, {item});;
+    (_item: Props['item']) => {
+      navigation.navigate(RootRoute.WeatherDetails, {item: _item});
     },
     [navigation],
-
+  );
 
   return (
     <TouchableOpacity onPress={() => onListItemClick(item)}>
