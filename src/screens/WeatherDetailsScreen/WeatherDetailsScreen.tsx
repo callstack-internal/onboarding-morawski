@@ -29,11 +29,11 @@ const WeatherDetailsScreen: React.FC = () => {
     },
     {
       key: 'Wind Speed',
-      value: `${humidity} mPh`,
+      value: `${speed} mPh`,
     },
     {
       key: 'Cloud cover',
-      value: `${humidity}%`,
+      value: `${all}%`,
     },
   ];
 

@@ -29,7 +29,7 @@ const WeatherGeneralInfo: React.FC<Props> = ({item, showIcon}) => {
           </Text>
         </View>
         <View style={styles.temperatureContainer}>
-          <Text style={styles.temperature}>{temp}&#8451;</Text>
+          <Text style={styles.temperature}>{temp}°C</Text>
         </View>
       </View>
       {showIcon && (
@@ -38,6 +38,7 @@ const WeatherGeneralInfo: React.FC<Props> = ({item, showIcon}) => {
           size={24}
           color="black"
           style={styles.icon}
+          testID="icon"
         />
       )}
     </View>
