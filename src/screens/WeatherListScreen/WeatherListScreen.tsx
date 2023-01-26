@@ -4,9 +4,11 @@ import {CITIES_LIST} from '../../shared/consts';
 import {useWeather} from '../../hooks/useWeather';
 
 const WeatherListScreen = () => {
-  const citiesWeather = useWeather(CITIES_LIST);
+  const {data, isLoading, error} = useWeather(CITIES_LIST);
 
-  return <WeatherList cities={citiesWeather || []} />;
+  return (
+    <WeatherList isLoading={isLoading} error={error} cities={data || []} />
+  );
 };
 
 export default WeatherListScreen;

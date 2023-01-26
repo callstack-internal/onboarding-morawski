@@ -19,8 +19,10 @@ const WeatherItem: React.FC<Props> = ({item}) => {
   );
 
   return (
-    <TouchableOpacity onPress={() => onListItemClick(item)}>
-      <WeatherGeneralInfo item={item} showIcon />
+    <TouchableOpacity
+      testID="weather-item-touchable"
+      onPress={() => onListItemClick(item)}>
+      <WeatherGeneralInfo item={item} />
     </TouchableOpacity>
   );
 };
