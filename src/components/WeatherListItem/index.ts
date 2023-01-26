@@ -1,1 +1,1 @@
-export { default as WeatherListItem } from './WeatherListItem'
+export {default as WeatherListItem} from './WeatherListItem';
