@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - macos/switch-ruby:
-          version: '3.0.5'
+          version: '2.7.6'
       - attach_workspace:
           at: ~/onboarding-morawski
       - restore_cache:
@@ -50,9 +50,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/onboarding-morawski
-      # - run: rbenv install 3.0.5
+      # - run: rbenv install 2.7.6
       - run: npm install -g react-native-cli
       - run: npm install -g detox-cli
+      - run: gem install cocoapods
       - run: brew tap wix/brew
       - run: brew install applesimutils
       - run: cd ios && pod install && cd ..
