@@ -1,6 +1,4 @@
-package com.onboarding.noficiation_button;
-
-import androidx.annotation.NonNull;
+package com.onboarding.notification_button;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

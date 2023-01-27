@@ -1,18 +1,21 @@
-import NotificationModule from '../modules/NotificationModule';
+import {NativeModules} from 'react-native';
 
 export interface Notification {
   title: string;
   body: string;
 }
 
-export interface NotificatonReponse {}
+export interface NotificatonReponse {
+  success: boolean;
+  error: string;
+}
 
 export const showNotification = ({
   title,
   body,
 }: Notification): NotificatonReponse => {
   try {
-    NotificationModule.showNotification(title, body);
+    NativeModules.Notification.showNotification(title, body);
 
     return {success: true, error: ''};
   } catch (e: any) {

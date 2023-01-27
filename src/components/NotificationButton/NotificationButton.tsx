@@ -12,14 +12,18 @@ const NativeNotificationButton =
 type Props = {
   style?: StyleProp<ViewStyle>;
   text: string;
+  textColor: string;
+  enabled: boolean;
   onPress?: () => void;
 };
 
-const NotificationButton = ({text, onPress}: Props) => {
+const NotificationButton = ({text, textColor, enabled, onPress}: Props) => {
   return (
     <NativeNotificationButton
       style={styles.button}
       text={text}
+      textColor={textColor}
+      enabled={enabled}
       onPress={onPress}
     />
   );

@@ -10,7 +10,7 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 
-import com.onboarding.noficiation_button.NotificationButtonPackage;
+import com.onboarding.notification_button.NotificationButtonPackage;
 import com.onboarding.notification.NotificationPackage;
 
 import java.util.List;

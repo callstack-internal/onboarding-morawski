@@ -1,12 +1,12 @@
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
-#import "MyNotification.h"
+#import "RNCKNotification.h"
 
-@implementation MyNotification
+@implementation RNCKNotification
 
 // This makes our module be accessible from JS. You can provide string argument, which will be the name accessible from JS.
-// Otherwise the class name will be used (here: MyNotification)
-RCT_EXPORT_MODULE()
+// Otherwise the class name will be used (here: RNCKNotification)
+RCT_EXPORT_MODULE('Notification')
 
 
 // This is how we're exporting methods to JS.

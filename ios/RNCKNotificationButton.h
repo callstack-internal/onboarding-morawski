@@ -7,6 +7,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RNCKNotificationButton : UIButton
 
+@property (nonatomic, copy) RCTBubblingEventBlock onPress;
+
 @end
 
 NS_ASSUME_NONNULL_END

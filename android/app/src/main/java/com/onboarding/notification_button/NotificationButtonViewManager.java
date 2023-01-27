@@ -1,8 +1,4 @@
-package com.onboarding.noficiation_button;
-
-import android.graphics.Color;
-
-import androidx.annotation.NonNull;
+package com.onboarding.notification_button;
 
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
