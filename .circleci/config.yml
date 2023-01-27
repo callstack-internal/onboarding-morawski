@@ -45,6 +45,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/onboarding-morawski
+      - run: rbenv install 2.7.6
       - run: npm install -g react-native-cli
       - run: npm install -g detox-cli
       - run: brew tap wix/brew
