@@ -5,9 +5,19 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent",
+    "typecheck": "tsc",
+    "e2e:ios.debug:build": "detox build -c ios.sim.debug",
+    "e2e:ios.debug:test": "detox test -c ios.sim.debug --cleanup",
+    "e2e:ios.release:build": "detox build -c ios.sim.release",
+    "e2e:ios.release:test": "detox test -c ios.sim.release --cleanup",
+    "e2e:android.debug:build": "detox build -c android.emu.debug",
+    "e2e:android.debug:test": "detox test -c android.emu.debug --cleanup",
+    "e2e:android.release:build": "detox build -c android.emu.release",
+    "e2e:android.release:test": "detox test -c android.emu.release --cleanup"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.2",

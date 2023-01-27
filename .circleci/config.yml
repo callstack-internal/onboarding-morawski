@@ -1,21 +1,75 @@
-version: 2
+version: 2.1
+
+ios_defaults: &ios_defaults
+  macos:
+    xcode: '14.2'
+  working_directory: ~/onboarding-morawski
+
+android_defaults: &android_defaults
+  docker:
+    - image: circleci/android:api-28-node
+  working_directory: ~/onboarding-morawski
 
 jobs:
-  build:
-    docker:
-      - image: circleci/node:10 # here, we say which node version we want to use
-    working_directory: ~/my-awesome-project
+  setup:
+    <<: *android_defaults
     steps:
       - checkout
-      - restore_cache: # restore the cache, in this case it will be our node_modules
+      - attach_workspace:
+          at: ~/onboarding-morawski
+      - restore_cache:
           keys:
-            - dependencies-{{ checksum "yarn.lock" }}
-            - dependencies-
-      - run: yarn install --frozen-lockfile # install dependencies
-      - save_cache: # save our node_modules
-          key: dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+      - run: npm install --frozen-lockfile
+      - save_cache:
           paths:
             - node_modules
-      - run: yarn lint # run lint script (probably some ESLlint or TSLint)
-      - run: yarn test # run test script (probably Jest)
-      - run: yarn typecheck # type check files (probably Flow or TypeScript)
+          key: v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  test:
+    <<: *android_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/onboarding-morawski
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+
+  e2e:
+    <<: *ios_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/onboarding-morawski
+      - run: npm install -g react-native-cli
+      - run: npm install -g detox-cli
+      - run: brew tap wix/brew
+      - run: brew install applesimutils
+      - run: cd ios && pod install && cd ..
+      - run: detox build -c ios.sim.release
+      - run: detox clean-framework-cache && detox build-framework-cache
+      - run: detox test -c ios.sim.release --cleanup
+
+workflows:
+  version: 2
+  test: # test workflow
+    jobs:
+      - setup:
+          filters:
+            branches:
+              ignore: master
+      - test:
+          requires:
+            - setup
+      - trigger_e2e:
+          type: approval
+          requires:
+            - test
+      - e2e:
+          context: secrets
+          requires:
+            - trigger_e2e
