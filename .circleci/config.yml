@@ -1,3 +1,6 @@
+orbs:
+  macos: circleci/macos@2
+
 version: 2.1
 
 ios_defaults: &ios_defaults
@@ -15,6 +18,8 @@ jobs:
     <<: *android_defaults
     steps:
       - checkout
+      - macos/switch-ruby:
+          version: '3.0.5'
       - attach_workspace:
           at: ~/onboarding-morawski
       - restore_cache:
@@ -45,7 +50,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/onboarding-morawski
-      - run: rbenv install 2.7.6
+      # - run: rbenv install 3.0.5
       - run: npm install -g react-native-cli
       - run: npm install -g detox-cli
       - run: brew tap wix/brew
