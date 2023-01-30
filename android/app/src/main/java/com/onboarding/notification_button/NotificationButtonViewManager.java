@@ -1,5 +1,9 @@
 package com.onboarding.notification_button;
 
+import android.graphics.Color;
+
+import androidx.annotation.NonNull;
+
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -8,12 +12,14 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import java.util.Map;
 
 public class NotificationButtonViewManager extends SimpleViewManager<NotificationButton> {
+    @NonNull
     @Override
     public String getName() {
         return "NotificationButton";
     }
 
-    @Override 
+    @NonNull
+    @Override
     protected NotificationButton createViewInstance(ThemedReactContext reactContext) {
         return new NotificationButton(reactContext);
     }
@@ -40,4 +46,8 @@ public class NotificationButtonViewManager extends SimpleViewManager<Notificatio
         button.setText(text);
     }
 
+    @ReactProp(name = "textColor", customType = "Color")
+    public void setTextColor(NotificationButton button, Integer textColor) {
+        button.setTextColor(textColor);
+    }
 }

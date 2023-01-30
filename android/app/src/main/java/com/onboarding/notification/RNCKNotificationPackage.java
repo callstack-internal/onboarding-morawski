@@ -11,14 +11,13 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-public class NotificationPackage implements ReactPackage {
-
+public class RNCKNotificationPackage implements ReactPackage {
     @Nonnull
     @Override
     public List<NativeModule> createNativeModules(@Nonnull ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         
-        modules.add(new NotificationModule(reactContext));
+        modules.add(new RNCKNotificationModule(reactContext));
 
         return modules;
     }

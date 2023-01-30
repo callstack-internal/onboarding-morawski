@@ -14,9 +14,7 @@ public class NotificationButton extends AppCompatButton {
     public NotificationButton(Context context) {
         super(context);
 
-        this.setTextColor(Color.BLUE); // make a text color blue
         this.setOnClickListener(viewClicked -> { // set on click listener
-
             WritableMap event = Arguments.createMap(); // Create empty map for event data
             event.putString("action", "click"); // add entry to event
 

@@ -10,8 +10,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 
+import com.onboarding.notification.RNCKNotificationPackage;
 import com.onboarding.notification_button.NotificationButtonPackage;
-import com.onboarding.notification.NotificationPackage;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
 
           packages.add(new NotificationButtonPackage());
-          packages.add(new NotificationPackage());
+          packages.add(new RNCKNotificationPackage());
 
           return packages;
         }

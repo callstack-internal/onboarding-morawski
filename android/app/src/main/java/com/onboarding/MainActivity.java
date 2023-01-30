@@ -1,11 +1,26 @@
 package com.onboarding;
 
+import android.Manifest;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
 
 public class MainActivity extends ReactActivity {
+
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Log.d("MainActivity", "REQUESTING PERMISSIONS...");
+    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 22);
+
+  }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule

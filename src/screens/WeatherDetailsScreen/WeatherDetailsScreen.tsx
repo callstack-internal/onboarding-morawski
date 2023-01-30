@@ -61,7 +61,7 @@ const WeatherDetailsScreen: React.FC = () => {
         onPress={onNotificationButtonPress}
         text="notification"
         textColor="white"
-        enabled
+        enabled={true}
       />
     </View>
   );
