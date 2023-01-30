@@ -97,6 +97,12 @@
 		13B07FAE1A68108700A75B9A /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				72CEEE692984017A008DD98A /* RNCKNotificationButton.h */,
+				72CEEE6B2984017A008DD98A /* RNCKNotificationButton.m */,
+				72CEEE6C2984017A008DD98A /* RNCKNotificationButtonViewManager.h */,
+				72CEEE6A2984017A008DD98A /* RNCKNotificationButtonViewManager.m */,
+				72E567DD2983E802009DB5DB /* RNCKNotification.m */,
+				72E567DC2983E7BD009DB5DB /* RNCKNotification.h */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -127,12 +133,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				72CEEE692984017A008DD98A /* RNCKNotificationButton.h */,
-				72CEEE6B2984017A008DD98A /* RNCKNotificationButton.m */,
-				72CEEE6C2984017A008DD98A /* RNCKNotificationButtonViewManager.h */,
-				72CEEE6A2984017A008DD98A /* RNCKNotificationButtonViewManager.m */,
-				72E567DD2983E802009DB5DB /* RNCKNotification.m */,
-				72E567DC2983E7BD009DB5DB /* RNCKNotification.h */,
 				72E567DA29801708009DB5DB /* fonts */,
 				13B07FAE1A68108700A75B9A /* onboarding */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,

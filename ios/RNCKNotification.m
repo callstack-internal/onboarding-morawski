@@ -6,7 +6,7 @@
 
 // This makes our module be accessible from JS. You can provide string argument, which will be the name accessible from JS.
 // Otherwise the class name will be used (here: RNCKNotification)
-RCT_EXPORT_MODULE('Notification')
+RCT_EXPORT_MODULE()
 
 
 // This is how we're exporting methods to JS.

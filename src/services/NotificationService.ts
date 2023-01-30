@@ -15,7 +15,7 @@ export const showNotification = ({
   body,
 }: Notification): NotificatonReponse => {
   try {
-    NativeModules.Notification.showNotification(title, body);
+    NativeModules.RNCKNotification.showNotification(title, body);
 
     return {success: true, error: ''};
   } catch (e: any) {

@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {WeatherGeneralInfo} from '../../components/WeatherGeneralInfo';
 import {RootRoute, useAppRoute} from '../../navigation/Routes';
-import {NotificationButton} from '../../components/NotificationButton';
+// import {NotificationButton} from '../../components/NotificationButton';
 import {showNotification} from '../../services/NotificationService';
 
 const WeatherDetailsScreen: React.FC = () => {
@@ -57,12 +57,17 @@ const WeatherDetailsScreen: React.FC = () => {
           </View>
         ))}
       </View>
-      <NotificationButton
+      <TouchableOpacity
+        testID="weather-item-touchable"
+        onPress={() => onNotificationButtonPress()}>
+        <Text>SNAP IT</Text>
+      </TouchableOpacity>
+      {/* <NotificationButton
         onPress={onNotificationButtonPress}
         text="notification"
         textColor="red"
         enabled
-      />
+      /> */}
     </View>
   );
 };
