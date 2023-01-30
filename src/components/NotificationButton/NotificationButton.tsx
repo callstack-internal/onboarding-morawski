@@ -31,10 +31,15 @@ const NotificationButton = ({text, textColor, enabled, onPress}: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    height: 70,
-    width: 200,
+    height: 40,
+    width: 150,
+    borderRadius: 10,
+    backgroundColor: 'powderblue',
     alignItems: 'center',
+    justifySelf: 'flex-end',
+    alignSelf: 'center',
     justifyContent: 'center',
+    marginTop: 50,
   },
 });
 
