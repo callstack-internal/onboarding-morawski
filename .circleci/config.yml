@@ -1,0 +1,82 @@
+# orbs:
+#   macos: circleci/macos@2
+
+version: 2.1
+
+ios_defaults: &ios_defaults
+  macos:
+    xcode: '14.2'
+  working_directory: ~/onboarding-morawski
+
+android_defaults: &android_defaults
+  docker:
+    - image: circleci/android:api-28-node
+  working_directory: ~/onboarding-morawski
+
+jobs:
+  setup:
+    <<: *android_defaults
+    steps:
+      - checkout
+      # - macos/switch-ruby:
+      #     version: '2.7.6'
+      - attach_workspace:
+          at: ~/onboarding-morawski
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+      - run: npm install --frozen-lockfile
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  test:
+    <<: *android_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/onboarding-morawski
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+
+  e2e:
+    <<: *ios_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/onboarding-morawski
+      - run: rbenv install 2.7.6
+      - run: npm install -g react-native-cli
+      - run: npm install -g detox-cli
+      - run: gem install cocoapods
+      - run: brew tap wix/brew
+      - run: brew install applesimutils
+      - run: cd ios && pod install && cd ..
+      - run: detox build -c ios.sim.release
+      - run: detox clean-framework-cache && detox build-framework-cache
+      - run: detox test -c ios.sim.release --cleanup
+
+workflows:
+  version: 2
+  test: # test workflow
+    jobs:
+      - setup:
+          filters:
+            branches:
+              ignore: master
+      - test:
+          requires:
+            - setup
+      - trigger_e2e:
+          type: approval
+          requires:
+            - test
+      - e2e:
+          context: secrets
+          requires:
+            - trigger_e2e
