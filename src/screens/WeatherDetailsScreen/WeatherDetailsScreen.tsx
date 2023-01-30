@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {WeatherGeneralInfo} from '../../components/WeatherGeneralInfo';
 import {RootRoute, useAppRoute} from '../../navigation/Routes';
+import {NotificationButton} from '../../components/NotificationButton';
+import {showNotification} from '../../services/NotificationService';
 
 const WeatherDetailsScreen: React.FC = () => {
   const {
@@ -37,6 +39,13 @@ const WeatherDetailsScreen: React.FC = () => {
     },
   ];
 
+  const onNotificationButtonPress = () => {
+    showNotification({
+      title: 'Weather notification',
+      body: `Hello this is your precious notification. Passing data for: ${item.name}. Woop woop!`,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <WeatherGeneralInfo item={item} />
@@ -48,6 +57,12 @@ const WeatherDetailsScreen: React.FC = () => {
           </View>
         ))}
       </View>
+      <NotificationButton
+        onPress={onNotificationButtonPress}
+        text="notification"
+        textColor="white"
+        enabled={true}
+      />
     </View>
   );
 };

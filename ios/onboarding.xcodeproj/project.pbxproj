@@ -12,7 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		72CEEE6D2984017B008DD98A /* RNCKNotificationButtonViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CEEE6A2984017A008DD98A /* RNCKNotificationButtonViewManager.m */; };
+		72CEEE6E2984017B008DD98A /* RNCKNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CEEE6B2984017A008DD98A /* RNCKNotificationButton.m */; };
 		72E567DB29801708009DB5DB /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 72E567DA29801708009DB5DB /* fonts */; };
+		72E567DE2983E802009DB5DB /* RNCKNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E567DD2983E802009DB5DB /* RNCKNotification.m */; };
 		7699B88040F8A987B510C191 /* libPods-onboarding-onboardingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-onboarding-onboardingTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -42,7 +45,13 @@
 		5709B34CF0A7D63546082F79 /* Pods-onboarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onboarding.release.xcconfig"; path = "Target Support Files/Pods-onboarding/Pods-onboarding.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-onboarding-onboardingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onboarding-onboardingTests.debug.xcconfig"; path = "Target Support Files/Pods-onboarding-onboardingTests/Pods-onboarding-onboardingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-onboarding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-onboarding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72CEEE692984017A008DD98A /* RNCKNotificationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCKNotificationButton.h; sourceTree = "<group>"; };
+		72CEEE6A2984017A008DD98A /* RNCKNotificationButtonViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCKNotificationButtonViewManager.m; sourceTree = "<group>"; };
+		72CEEE6B2984017A008DD98A /* RNCKNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCKNotificationButton.m; sourceTree = "<group>"; };
+		72CEEE6C2984017A008DD98A /* RNCKNotificationButtonViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCKNotificationButtonViewManager.h; sourceTree = "<group>"; };
 		72E567DA29801708009DB5DB /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		72E567DC2983E7BD009DB5DB /* RNCKNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCKNotification.h; sourceTree = "<group>"; };
+		72E567DD2983E802009DB5DB /* RNCKNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCKNotification.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = onboarding/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-onboarding-onboardingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onboarding-onboardingTests.release.xcconfig"; path = "Target Support Files/Pods-onboarding-onboardingTests/Pods-onboarding-onboardingTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -88,6 +97,12 @@
 		13B07FAE1A68108700A75B9A /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				72CEEE692984017A008DD98A /* RNCKNotificationButton.h */,
+				72CEEE6B2984017A008DD98A /* RNCKNotificationButton.m */,
+				72CEEE6C2984017A008DD98A /* RNCKNotificationButtonViewManager.h */,
+				72CEEE6A2984017A008DD98A /* RNCKNotificationButtonViewManager.m */,
+				72E567DD2983E802009DB5DB /* RNCKNotification.m */,
+				72E567DC2983E7BD009DB5DB /* RNCKNotification.h */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -416,6 +431,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E567DE2983E802009DB5DB /* RNCKNotification.m in Sources */,
+				72CEEE6E2984017B008DD98A /* RNCKNotificationButton.m in Sources */,
+				72CEEE6D2984017B008DD98A /* RNCKNotificationButtonViewManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
